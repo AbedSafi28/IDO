@@ -1,0 +1,11 @@
+body {
+    margin-top: 5px;
+    background-color: #212529;
+    border-radius: 5px;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+span {
+    color: #6C757D
+}

@@ -1,0 +1,50 @@
+<app-nav-menu></app-nav-menu>
+<body>
+    <div class="d-flex flex-row">
+        <div class="p-5">
+            <div class="todo-column-header">
+                <img src="../../assets/images/ToDoIcon.svg"/>
+                <span>To Do</span>
+            </div>
+            <div class="list"
+            cdkDropList
+            #todoList="cdkDropList"
+            [cdkDropListData]="todos"
+            [cdkDropListConnectedTo]="[doingList, doneList]"
+            (cdkDropListDropped)="onDrop($event)"
+            >
+            <app-task *ngFor="let td of todos" cdkDrag [title]="td.name"></app-task>
+            </div>
+        </div>
+        <div class="p-5">
+            <div class="todo-column-header">
+                <img src="../../assets/images/DoingIcon.svg"/>
+                <span>Doing</span>
+            </div>
+            <div class="list"
+            cdkDropList
+            #doingList="cdkDropList"
+            [cdkDropListData]="doing"
+            [cdkDropListConnectedTo]="[todoList, doneList]"
+            (cdkDropListDropped)="onDrop($event)"
+            >
+            <app-task *ngFor="let dn of doing" cdkDrag [title]="dn.name"></app-task>
+            </div>
+        </div>
+        <div class="p-5">
+            <div class="todo-column-header">
+                <img src="../../assets/images/DoneIcon.svg"/>
+                <span>Done</span>
+            </div>
+            <div class="list"
+            cdkDropList
+            #doneList="cdkDropList"
+            [cdkDropListData]="completed"
+            [cdkDropListConnectedTo]="[todoList, doingList]"
+            (cdkDropListDropped)="onDrop($event)"
+            >
+            <app-task *ngFor="let cm of completed" cdkDrag [title]="cm.name"></app-task>
+            </div>
+        </div>
+    </div>
+</body>

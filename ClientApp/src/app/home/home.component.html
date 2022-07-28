@@ -1,0 +1,38 @@
+<div class="container-fluid h-100">
+  <div class="row vertical-align h-100">
+    <div class="col-md-6 left-div">
+      <div class="row">
+        <img src="../../assets/images/Logo.png" alt="Logo"/>
+      </div>
+      <div class="row vertical-align">
+        <div class="col-md-3">
+          <img src="../../assets/images/Woman.svg" alt="Woman"/>
+        </div>
+        <div class="col-md-3">
+          <img src="../../assets/images/Man.svg" alt="Man"/>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 right-div">
+      <div class="title">
+        <span>Time To Work!</span>
+      </div>
+
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm.value)">
+        <div>
+          <span>Email</span>
+          <div>
+            <input type="email" name="email" formControlName="email" required>
+          </div>
+    
+          <span>Password</span>
+          <div>
+            <input type="password" name="password" formControlName="password" required>
+          </div>
+      
+          <button class="button" type="submit">SIGN IN</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

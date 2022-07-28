@@ -1,0 +1,30 @@
+span {
+    color: #FFFFFF;
+}
+
+input {
+    color: #FFFFFF;
+    background-color: #222222;
+    border-radius: 5px;
+    border: 0px;
+}
+
+button {
+    border-radius: 5px;
+    background-color: #B6A3C2;
+    color: #403564;
+    font-weight: bold;
+    border: 0px
+}
+
+.title {
+    font-size: 64px;
+}
+
+.left-div {
+    background-color: #212121;
+}
+
+.right-div {
+    background-image: linear-gradient(#8556A4, #2D2B52);
+}

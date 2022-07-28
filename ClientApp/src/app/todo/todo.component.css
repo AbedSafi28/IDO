@@ -1,0 +1,15 @@
+body {
+    background-color: #5B5E60;
+}
+
+.todo-column-header {
+    width: 300px;
+    background-color: #212529;
+    color: #FFFFFF;
+    border-radius: 7px;
+    padding: 7px;
+}
+
+.todo-column-header span {
+    margin-left: 15px;
+}
