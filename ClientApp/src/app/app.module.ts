@@ -10,6 +10,8 @@ import {NavMenuComponent} from './nav-menu/nav-menu.component';
 import {HomeComponent} from './home/home.component';
 import {TodoComponent} from './todo/todo.component';
 import {TaskComponent} from './task/task.component';
+import {TodoService} from './providers/todo.service';
+import {DatePipe} from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,10 @@ import {TaskComponent} from './task/task.component';
       {path: 'todo', component: TodoComponent},
     ])
   ],
-  providers: [],
+  providers: [
+    TodoService,
+    DatePipe
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

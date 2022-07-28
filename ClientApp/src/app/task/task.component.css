@@ -3,9 +3,60 @@ body {
     background-color: #212529;
     border-radius: 5px;
     color: #FFFFFF;
-    cursor: pointer;
 }
 
 span {
-    color: #6C757D
+    color: #6C757D;
+    margin-left: 5px;
+    cursor: default;
+}
+
+input, select {
+    color: #FFFFFF;
+    cursor: pointer;
+    background-color: transparent;
+    border: 0px;
+    border-radius: 5px;
+    outline: none;
+}
+
+input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-calendar-picker-indicator {
+    outline: none;
+    display: none;
+    -webkit-appearance: none;
+}
+
+select {
+    width: 100px;
+    text-align: center;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-indent: 1px;
+    text-overflow: '';
+}
+
+select option {
+    background-color: #212529;
+}
+
+.task-title {
+    color: #FFFFFF;
+    font-weight: bold;
+}
+
+.low-imp {
+    background-color: #39AC95;
+}
+
+.med-imp {
+    background-color: #FE913E;
+}
+
+.high-imp {
+    background-color: #DC3545;
+}
+
+#importanceSpan {
+    cursor: pointer;
 }

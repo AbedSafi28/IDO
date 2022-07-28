@@ -1,6 +1,8 @@
 import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
 import {Component, OnInit} from '@angular/core';
+import {TodoService} from '../providers/todo.service';
 
+// @TODO fix dragging to empty list
 @Component({
   selector: 'app-todo',
   templateUrl: './todo.component.html',
@@ -8,28 +10,8 @@ import {Component, OnInit} from '@angular/core';
 })
 export class TodoComponent implements OnInit {
 
-  todos = [{
-    name: 'task1'
-  },
-  {
-    name: 'task2'
+  constructor(public todoService: TodoService) {
   }
-  ]
-  doing = [{
-    name: 'task3'
-  },
-  {
-    name: 'task4'
-  }
-  ]
-  completed = [{
-    name: 'task5'
-  },
-  {
-    name: 'task6'
-  }
-  ]
-  constructor() { }
 
   ngOnInit(): void {
   }

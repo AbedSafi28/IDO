@@ -1,20 +1,30 @@
 <body>
-    <h2>{{title}}</h2>
-    <!-- <h2>Task title</h2>
+    <input class="task-title" type="text" [value]="data.title"/>
     <div>
         <span>Category</span>
-        <label>Education</label>
+        <input type="text" [value]="data.category"/>
     </div>
     <div>
-        <span>Category</span>
-        <label>Education</label>
+        <span>Due Date</span>
+        <label *ngIf="!dueDate" (click)="restoreDueDate()">None</label>
+        <input 
+            *ngIf="dueDate"
+            type="date"
+            min="{{dueDate | date:'yyyy-MM-dd'}}"
+            (click)="showDatePicker($event)"
+            [(ngModel)]="dueDate"
+        />
     </div>
     <div>
-        <span>Category</span>
-        <label>Education</label>
+        <span>Estimate</span>
+        <input type="text" [value]="data.estimate"/>
     </div>
     <div>
-        <span>Category</span>
-        <label>Education</label>
-    </div> -->
+        <span id="importanceSpan">Importance</span>
+        <select [class]="getImportanceClass()" [(ngModel)]="selectedImportance">
+            <option value="1">Low</option>
+            <option value="2">Medium</option>
+            <option value="3">High</option>
+        </select>
+    </div>
 </body>

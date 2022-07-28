@@ -9,11 +9,12 @@
             <div class="list"
             cdkDropList
             #todoList="cdkDropList"
-            [cdkDropListData]="todos"
+            [cdkDropListData]="todoService.todos"
             [cdkDropListConnectedTo]="[doingList, doneList]"
             (cdkDropListDropped)="onDrop($event)"
             >
-            <app-task *ngFor="let td of todos" cdkDrag [title]="td.name"></app-task>
+            <!-- <span *ngIf="!todoService.todos.length">TEST</span> -->
+            <app-task *ngFor="let td of todoService.todos" cdkDrag [data]="td"></app-task>
             </div>
         </div>
         <div class="p-5">
@@ -24,11 +25,11 @@
             <div class="list"
             cdkDropList
             #doingList="cdkDropList"
-            [cdkDropListData]="doing"
+            [cdkDropListData]="todoService.doing"
             [cdkDropListConnectedTo]="[todoList, doneList]"
             (cdkDropListDropped)="onDrop($event)"
             >
-            <app-task *ngFor="let dn of doing" cdkDrag [title]="dn.name"></app-task>
+            <app-task *ngFor="let dg of todoService.doing" cdkDrag [data]="dg"></app-task>
             </div>
         </div>
         <div class="p-5">
@@ -39,11 +40,11 @@
             <div class="list"
             cdkDropList
             #doneList="cdkDropList"
-            [cdkDropListData]="completed"
+            [cdkDropListData]="todoService.completed"
             [cdkDropListConnectedTo]="[todoList, doingList]"
             (cdkDropListDropped)="onDrop($event)"
             >
-            <app-task *ngFor="let cm of completed" cdkDrag [title]="cm.name"></app-task>
+            <app-task *ngFor="let cm of todoService.completed" cdkDrag [data]="cm"></app-task>
             </div>
         </div>
     </div>
