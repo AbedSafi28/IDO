@@ -1,6 +1,7 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Inject, Input, OnInit} from '@angular/core';
 import {DatePipe} from '@angular/common';
-
+import {TodoService} from '../providers/todo.service';
+import {HttpClient} from '@angular/common/http';
 @Component({
   selector: 'app-task',
   templateUrl: './task.component.html',
@@ -8,17 +9,20 @@ import {DatePipe} from '@angular/common';
 })
 export class TaskComponent implements OnInit {
 
+  http: HttpClient;
+  baseUrl: string;
+
+  oldData: any = {};
   @Input() data: any = {};
 
-  dueDate: any = '';
-
-  selectedImportance = '';
-
-  constructor(private datePipe: DatePipe) {
+  constructor(private datePipe: DatePipe, public todoService: TodoService, http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
+    this.http = http;
+    this.baseUrl = baseUrl;
   }
 
   ngOnInit(): void {
     this.setDueDate();
+    this.oldData = Object.assign({}, this.data);
   }
 
   showDatePicker(event: any) {
@@ -30,7 +34,7 @@ export class TaskComponent implements OnInit {
   }
 
   setDueDate() {
-    this.dueDate = this.datePipe.transform(this.getTodayDate(), 'yyyy-MM-dd');
+    this.data.dueDate = this.datePipe.transform((this.data.dueDate ? this.data.dueDate : this.getTodayDate()), 'yyyy-MM-dd');
   }
 
   getTodayDate() {
@@ -45,15 +49,31 @@ export class TaskComponent implements OnInit {
   // TODO maybe make it enum
   // TODO remove default blue color when selecting date or entering other info
   getImportanceClass() {
-    if (!this.selectedImportance || this.selectedImportance === '0') {
+    if (!this.data.importance || this.data.importance === '0') {
       return '';
     }
-    if (this.selectedImportance === '1') {
+    if (this.data.importance === '1') {
       return 'low-imp';
     }
-    if (this.selectedImportance === '2') {
+    if (this.data.importance === '2') {
       return 'med-imp';
     }
     return 'high-imp';
+  }
+
+  checkAndUpdate() {
+    // TODO maybe use better library
+    // TODO maybe double check in case of failed response
+    if (JSON.stringify(this.oldData) !== JSON.stringify(this.data)) {
+      this.http.post(this.baseUrl + 'todo', this.data).subscribe(
+        (response: any) => {
+          console.log(response);
+        },
+        (error) => {
+        }
+      );
+      this.oldData = Object.assign({}, this.data);
+      this.todoService.lastUpdatedTime = Date.now();
+    }
   }
 }

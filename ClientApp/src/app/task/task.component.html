@@ -1,27 +1,27 @@
-<body>
+<body (mouseleave)="checkAndUpdate()">
     <input class="task-title" type="text" [value]="data.title"/>
     <div>
         <span>Category</span>
-        <input type="text" [value]="data.category"/>
+        <input type="text" [(ngModel)]="data.category"/>
     </div>
     <div>
         <span>Due Date</span>
-        <label *ngIf="!dueDate" (click)="restoreDueDate()">None</label>
+        <label *ngIf="!data.dueDate" (click)="restoreDueDate()">None</label>
         <input 
-            *ngIf="dueDate"
+            *ngIf="data.dueDate"
             type="date"
-            min="{{dueDate | date:'yyyy-MM-dd'}}"
+            min="{{data.dueDate | date:'yyyy-MM-dd'}}"
             (click)="showDatePicker($event)"
-            [(ngModel)]="dueDate"
+            [(ngModel)]="data.dueDate"
         />
     </div>
     <div>
         <span>Estimate</span>
-        <input type="text" [value]="data.estimate"/>
+        <input type="text" [(ngModel)]="data.estimate"/>
     </div>
     <div>
         <span id="importanceSpan">Importance</span>
-        <select [class]="getImportanceClass()" [(ngModel)]="selectedImportance">
+        <select [class]="getImportanceClass()" [(ngModel)]="data.importance">
             <option value="1">Low</option>
             <option value="2">Medium</option>
             <option value="3">High</option>

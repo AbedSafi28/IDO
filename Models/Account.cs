@@ -2,12 +2,12 @@ namespace IDO
 {
     public class LoginForm
     {
-        public string email
+        public string? email
         {
             get;
             set;
         }
-        public string password
+        public string? password
         {
             get; set;
         }

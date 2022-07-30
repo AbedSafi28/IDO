@@ -19,7 +19,8 @@ export class NavMenuComponent {
       category: 'Category',
       dueDate: '',
       estimate: '7 days', // TODO check about this number + text requirement
-      priority: ''
+      importance: '',
+      userCredential: 'zxc'
     })
   }
 }

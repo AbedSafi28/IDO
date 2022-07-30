@@ -49,17 +49,15 @@ export class HomeComponent {
   }
 
   onSubmit(formData: any): void {
+    // TODO handle in case of failed to login
     if (Object.keys(formData) && formData.email && formData.password) {
       this.http.post(this.baseUrl + 'login', formData).subscribe(
         (response: any) => {
-          console.log(response);
-          console.log(response.success);
           if (response.success) {
-            this.router.navigate(['/nav']);
+            this.router.navigate(['/mylist']);
           }
         },
         (error) => {
-          console.error(error)
         }
       );
     }

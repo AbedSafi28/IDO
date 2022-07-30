@@ -29,7 +29,7 @@ import {DatePipe} from '@angular/common';
     DragDropModule,
     RouterModule.forRoot([
       {path: '', component: HomeComponent, pathMatch: 'full'},
-      {path: 'todo', component: TodoComponent},
+      {path: 'mylist', component: TodoComponent},
     ])
   ],
   providers: [
