@@ -3,10 +3,20 @@ nav {
 }
 
 .logo {
-  width: 70px;
+  width: 100px;
   height: 50px;
 }
 
 .profile {
   border-radius: 50%;
+}
+
+.add-icon {
+  position: absolute;
+  margin-left: 7px;
+  margin-top: 17px;
+}
+
+.container {
+  margin: 0;
 }

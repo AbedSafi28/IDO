@@ -12,6 +12,8 @@ import {TodoComponent} from './todo/todo.component';
 import {TaskComponent} from './task/task.component';
 import {TodoService} from './providers/todo.service';
 import {DatePipe} from '@angular/common';
+import {AuthGuardService} from './auth/auth-guard.service';
+import {AuthService} from './auth/auth.service';
 
 @NgModule({
   declarations: [
@@ -28,11 +30,21 @@ import {DatePipe} from '@angular/common';
     ReactiveFormsModule,
     DragDropModule,
     RouterModule.forRoot([
-      {path: '', component: HomeComponent, pathMatch: 'full'},
-      {path: 'mylist', component: TodoComponent},
+      {
+        path: '',
+        component: HomeComponent,
+        pathMatch: 'full'
+      },
+      {
+        path: 'mylist',
+        component: TodoComponent,
+        canActivate: [AuthGuardService]
+      }
     ])
   ],
   providers: [
+    AuthGuardService,
+    AuthService,
     TodoService,
     DatePipe
   ],

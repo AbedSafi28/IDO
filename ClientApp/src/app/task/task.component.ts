@@ -2,6 +2,7 @@ import {Component, Inject, Input, OnInit} from '@angular/core';
 import {DatePipe} from '@angular/common';
 import {TodoService} from '../providers/todo.service';
 import {HttpClient} from '@angular/common/http';
+
 @Component({
   selector: 'app-task',
   templateUrl: './task.component.html',
@@ -67,7 +68,6 @@ export class TaskComponent implements OnInit {
     if (JSON.stringify(this.oldData) !== JSON.stringify(this.data)) {
       this.http.post(this.baseUrl + 'todo', this.data).subscribe(
         (response: any) => {
-          console.log(response);
         },
         (error) => {
         }

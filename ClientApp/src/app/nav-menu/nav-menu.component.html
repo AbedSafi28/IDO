@@ -1,38 +1,19 @@
-<header>
-  <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light">
-    <div class="container">
-      <a class="navbar-brand">
-        <img class="logo" src="../../assets/images/Logo.png"/>
+<nav class="navbar navbar-nav navbar-light">
+  <div class="container-fluid">
+    <a class="navbar-brand">
+      <img class="logo" src="../../assets/images/Logo.png"/>
+    </a>
+    <div>
+      <a class="p-2">
+        <img src="../../assets/images/Search.svg"/>
       </a>
-      <ul class="navbar-nav flex-grow">
-        <li class="nav-item">
-          <a>
-            <img src="../../assets/images/Search.svg"/>
-          </a>
-        </li>
-        <!-- <li class="nav-item">
-          <a (click)="addTask()">
-            <div style="position: relative">
-              <div style="position: absolute; left: 0;">
-                <img src="../../assets/images/Circle.svg"/>
-              </div>
-              <diV style="position: absolute; z-index: 1; left: 7px;">
-                <img src="../../assets/images/Add.svg"/>
-              </diV>
-            </div>
-          </a>
-        </li> -->
-        <li class="nav-item">
-          <a (click)="addTask()">
-            <img src="../../assets/images/Add.svg"/>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a>
-            <img class="profile" src="../../assets/images/Bitmap.png"/>
-          </a>
-        </li>
-      </ul>
+      <a class="p-2" (click)="addTask()">
+        <img class="add-icon" src="../../assets/images/Add.svg"/>
+        <img src="../../assets/images/Circle.svg"/>
+      </a>
+      <a class="p-2">
+        <img class="profile" src="../../assets/images/Bitmap.png"/>
+      </a>
     </div>
-  </nav>
-</header>
+  </div>
+</nav>

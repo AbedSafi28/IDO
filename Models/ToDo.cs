@@ -37,5 +37,10 @@ namespace IDO
             get;
             set;
         }
+        public string? status
+        {
+            get;
+            set;
+        }
     }
 }

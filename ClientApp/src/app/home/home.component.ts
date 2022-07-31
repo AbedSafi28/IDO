@@ -54,7 +54,14 @@ export class HomeComponent {
       this.http.post(this.baseUrl + 'login', formData).subscribe(
         (response: any) => {
           if (response.success) {
-            this.router.navigate(['/mylist']);
+            const loginCookie = document.cookie;
+            if (loginCookie) {
+              const splittedCookie = loginCookie.split('=');
+              if (splittedCookie?.length === 2) {
+                localStorage.setItem('ido-login', splittedCookie[1]);
+                this.router.navigate(['/mylist']);
+              }
+            }
           }
         },
         (error) => {

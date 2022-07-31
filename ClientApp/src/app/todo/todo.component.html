@@ -1,51 +1,63 @@
-<app-nav-menu></app-nav-menu>
-<body>
-    <div class="d-flex flex-row">
-        <div class="p-5">
-            <div class="todo-column-header">
-                <img src="../../assets/images/ToDoIcon.svg"/>
-                <span>To Do</span>
-            </div>
-            <div class="list"
-            cdkDropList
-            #todoList="cdkDropList"
-            [cdkDropListData]="todoService.todos"
-            [cdkDropListConnectedTo]="[doingList, doneList]"
-            (cdkDropListDropped)="onDrop($event)"
-            >
-            <!-- <span *ngIf="!todoService.todos.length">TEST</span> -->
-            <app-task *ngFor="let td of todoService.todos" cdkDrag [data]="td"></app-task>
-            </div>
-        </div>
-        <div class="p-5">
-            <div class="todo-column-header">
-                <img src="../../assets/images/DoingIcon.svg"/>
-                <span>Doing</span>
-            </div>
-            <div class="list"
-            cdkDropList
-            #doingList="cdkDropList"
-            [cdkDropListData]="todoService.doing"
-            [cdkDropListConnectedTo]="[todoList, doneList]"
-            (cdkDropListDropped)="onDrop($event)"
-            >
-            <app-task *ngFor="let dg of todoService.doing" cdkDrag [data]="dg"></app-task>
-            </div>
-        </div>
-        <div class="p-5">
-            <div class="todo-column-header">
-                <img src="../../assets/images/DoneIcon.svg"/>
-                <span>Done</span>
-            </div>
-            <div class="list"
-            cdkDropList
-            #doneList="cdkDropList"
-            [cdkDropListData]="todoService.completed"
-            [cdkDropListConnectedTo]="[todoList, doingList]"
-            (cdkDropListDropped)="onDrop($event)"
-            >
-            <app-task *ngFor="let cm of todoService.completed" cdkDrag [data]="cm"></app-task>
-            </div>
+<div class="main">
+    <app-nav-menu></app-nav-menu>
+    <div *ngIf="!quoteHidden" class="d-flex quote-bar navbar-nav">
+        <div class="my-auto quote-content">
+            <label>"Anything that can go wrong, will go wrong!"</label>
+            <!-- TODO fix margin on remove quote icon -->
+            <img class="remove-quote-icon" (click)="hideQuote()" src="../../assets/images/RemoveQuote.svg"/>
         </div>
     </div>
-</body>
+    <div class="d-flex">
+        <div class="d-flex p-2">
+            <div class="p-2">
+                <div class="todo-column-header">
+                    <img src="../../assets/images/ToDoIcon.svg"/>
+                    <span>To Do</span>
+                </div>
+                <div class="list"
+                cdkDropList
+                #todoList="cdkDropList"
+                [cdkDropListData]="todoService.todos"
+                [cdkDropListConnectedTo]="[doingList, doneList]"
+                (cdkDropListDropped)="onDrop($event)"
+                >
+                <!-- <span *ngIf="!todoService.todos.length">TEST</span> -->
+                <app-task *ngFor="let td of todoService.todos" cdkDrag [data]="td"></app-task>
+                </div>
+            </div>
+            <div class="p-2">
+                <div class="todo-column-header">
+                    <img src="../../assets/images/DoingIcon.svg"/>
+                    <span>Doing</span>
+                </div>
+                <div class="list"
+                cdkDropList
+                #doingList="cdkDropList"
+                [cdkDropListData]="todoService.doing"
+                [cdkDropListConnectedTo]="[todoList, doneList]"
+                (cdkDropListDropped)="onDrop($event)"
+                >
+                <app-task *ngFor="let dg of todoService.doing" cdkDrag [data]="dg"></app-task>
+                </div>
+            </div>
+            <div class="p-2">
+                <div class="todo-column-header">
+                    <img src="../../assets/images/DoneIcon.svg"/>
+                    <span>Done</span>
+                </div>
+                <div class="list"
+                cdkDropList
+                #doneList="cdkDropList"
+                [cdkDropListData]="todoService.completed"
+                [cdkDropListConnectedTo]="[todoList, doingList]"
+                (cdkDropListDropped)="onDrop($event)"
+                >
+                <app-task *ngFor="let cm of todoService.completed" cdkDrag [data]="cm"></app-task>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="quoteHidden" class="show-quote-icon">
+            <img (click)="showQuote()" src="../../assets/images/ShowQuote.svg"/>
+        </div>
+    </div>
+</div>

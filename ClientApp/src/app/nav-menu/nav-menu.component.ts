@@ -14,13 +14,13 @@ export class NavMenuComponent {
 
   addTask() {
     this.todoService.todos.unshift({
-      id: 'randomId',
+      id: Math.random().toString(36).substr(2, 16),
+      status: 'todo',
       title: 'My Task',
       category: 'Category',
       dueDate: '',
       estimate: '7 days', // TODO check about this number + text requirement
-      importance: '',
-      userCredential: 'zxc'
+      importance: ''
     })
   }
 }

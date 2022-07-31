@@ -48,22 +48,28 @@ public class LoginController : Controller
 
             if (ValidEmail)
             {
-                Response.Cookies.Append("ido-login", "true", new CookieOptions
+                string tokenValue = LoginController.Base64Encode(
+                    "{\"userEmail\":\"" + accountInfo.email + "\"}"
+                );
+                Response.Cookies.Append("ido-login", tokenValue, new CookieOptions
                 {
                     Secure = true,
-                    HttpOnly = true,
                     SameSite = SameSiteMode.None
                 });
 
                 jsonResponse = "{\"success\":true}";
             }
         }
-
-        Response.Clear();
         Response.ContentType = "application/json; charset=utf-8";
         Response.StatusCode = 200;
         Response.WriteAsync(jsonResponse);
 
         return;
+    }
+
+    public static string Base64Encode(string plainText)
+    {
+        var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(plainText);
+        return System.Convert.ToBase64String(plainTextBytes);
     }
 }
