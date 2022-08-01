@@ -7,22 +7,21 @@
             <img class="remove-quote-icon" (click)="hideQuote()" src="../../assets/images/RemoveQuote.svg"/>
         </div>
     </div>
-    <div class="d-flex">
+    <div class="d-flex tasks-div">
         <div class="d-flex p-2">
             <div class="p-2">
                 <div class="todo-column-header">
                     <img src="../../assets/images/ToDoIcon.svg"/>
                     <span>To Do</span>
                 </div>
-                <div class="list"
+                <div
                 cdkDropList
                 #todoList="cdkDropList"
                 [cdkDropListData]="todoService.todos"
                 [cdkDropListConnectedTo]="[doingList, doneList]"
                 (cdkDropListDropped)="onDrop($event)"
                 >
-                <!-- <span *ngIf="!todoService.todos.length">TEST</span> -->
-                <app-task *ngFor="let td of todoService.todos" cdkDrag [data]="td"></app-task>
+                <app-task *ngFor="let td of todoService.todos | searchFilter : todoService.searchTerm" cdkDrag [data]="td"></app-task>
                 </div>
             </div>
             <div class="p-2">
@@ -30,14 +29,14 @@
                     <img src="../../assets/images/DoingIcon.svg"/>
                     <span>Doing</span>
                 </div>
-                <div class="list"
+                <div
                 cdkDropList
                 #doingList="cdkDropList"
                 [cdkDropListData]="todoService.doing"
                 [cdkDropListConnectedTo]="[todoList, doneList]"
                 (cdkDropListDropped)="onDrop($event)"
                 >
-                <app-task *ngFor="let dg of todoService.doing" cdkDrag [data]="dg"></app-task>
+                <app-task *ngFor="let dg of todoService.doing | searchFilter : todoService.searchTerm" cdkDrag [data]="dg"></app-task>
                 </div>
             </div>
             <div class="p-2">
@@ -45,18 +44,18 @@
                     <img src="../../assets/images/DoneIcon.svg"/>
                     <span>Done</span>
                 </div>
-                <div class="list"
+                <div
                 cdkDropList
                 #doneList="cdkDropList"
                 [cdkDropListData]="todoService.completed"
                 [cdkDropListConnectedTo]="[todoList, doingList]"
                 (cdkDropListDropped)="onDrop($event)"
                 >
-                <app-task *ngFor="let cm of todoService.completed" cdkDrag [data]="cm"></app-task>
+                <app-task *ngFor="let cm of todoService.completed | searchFilter : todoService.searchTerm" cdkDrag [data]="cm"></app-task>
                 </div>
             </div>
         </div>
-        <div *ngIf="quoteHidden" class="show-quote-icon">
+        <div *ngIf="quoteHidden" class="show-quote-icon p-2">
             <img (click)="showQuote()" src="../../assets/images/ShowQuote.svg"/>
         </div>
     </div>

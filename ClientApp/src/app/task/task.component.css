@@ -43,6 +43,11 @@ select option {
 .task-title {
     color: #FFFFFF;
     font-weight: bold;
+    width: 100%;
+}
+
+.highlighted {
+    background-color: #8556A4;
 }
 
 .low-imp {

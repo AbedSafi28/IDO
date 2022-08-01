@@ -4,14 +4,15 @@
       <img class="logo" src="../../assets/images/Logo.png"/>
     </a>
     <div>
-      <a class="p-2">
+      <input type="text" *ngIf="searchBarShown" (mouseleave)="hideSearchBar()" [(ngModel)]="searchTerm" (input)="setSearchValue(searchTerm)"/>
+      <a *ngIf="!searchBarShown" class="p-2" (click)="showSearchBar()">
         <img src="../../assets/images/Search.svg"/>
       </a>
       <a class="p-2" (click)="addTask()">
         <img class="add-icon" src="../../assets/images/Add.svg"/>
         <img src="../../assets/images/Circle.svg"/>
       </a>
-      <a class="p-2">
+      <a class="p-2" (click)="logout()">
         <img class="profile" src="../../assets/images/Bitmap.png"/>
       </a>
     </div>

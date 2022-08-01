@@ -46,9 +46,15 @@ export class TaskComponent implements OnInit {
     return yyyy + '-' + mm + '-' + + dd;
   }
 
-  // TODO fix card design and whole app design to match adobe
+  getTitleClass(highlighted = false) {
+    let classes = 'task-title';
+    if (highlighted) {
+      classes += ' highlighted';
+    }
+    return classes;
+  }
+
   // TODO maybe make it enum
-  // TODO remove default blue color when selecting date or entering other info
   getImportanceClass() {
     if (!this.data.importance || this.data.importance === '0') {
       return '';
@@ -65,11 +71,16 @@ export class TaskComponent implements OnInit {
   checkAndUpdate() {
     // TODO maybe use better library
     // TODO maybe double check in case of failed response
-    if (JSON.stringify(this.oldData) !== JSON.stringify(this.data)) {
+    const oldData = Object.assign({}, this.oldData);
+    const data = Object.assign({}, this.data);
+    delete oldData.highlighted;
+    delete data.highlighted;
+    if (JSON.stringify(oldData) !== JSON.stringify(data)) {
       this.http.post(this.baseUrl + 'todo', this.data).subscribe(
         (response: any) => {
         },
         (error) => {
+          console.log(error);
         }
       );
       this.oldData = Object.assign({}, this.data);

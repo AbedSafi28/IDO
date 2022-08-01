@@ -1,5 +1,5 @@
 <body (mouseleave)="checkAndUpdate()">
-    <input class="task-title" type="text" [value]="data.title"/>
+    <input [class]="getTitleClass(data.highlighted)" type="text" [(ngModel)]="data.title"/>
     <div>
         <span>Category</span>
         <input type="text" [(ngModel)]="data.category"/>

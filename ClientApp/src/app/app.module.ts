@@ -14,6 +14,7 @@ import {TodoService} from './providers/todo.service';
 import {DatePipe} from '@angular/common';
 import {AuthGuardService} from './auth/auth-guard.service';
 import {AuthService} from './auth/auth.service';
+import {SearchFilterPipe} from './pipes/searchFilter';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import {AuthService} from './auth/auth.service';
     NavMenuComponent,
     HomeComponent,
     TodoComponent,
-    TaskComponent
+    TaskComponent,
+    SearchFilterPipe
   ],
   imports: [
     BrowserModule.withServerTransition({appId: 'ng-cli-universal'}),
@@ -46,7 +48,8 @@ import {AuthService} from './auth/auth.service';
     AuthGuardService,
     AuthService,
     TodoService,
-    DatePipe
+    DatePipe,
+    SearchFilterPipe
   ],
   bootstrap: [AppComponent]
 })

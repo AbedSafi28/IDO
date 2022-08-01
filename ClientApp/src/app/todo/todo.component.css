@@ -35,8 +35,6 @@ label {
 }
 
 .show-quote-icon {
-    margin-left: 21.5rem;
-    margin-top: 2rem;
     cursor: pointer;
 }
 
@@ -52,4 +50,9 @@ label {
 
 .quote-bar:hover .remove-quote-icon {
     display: block;
+}
+
+.tasks-div {
+    justify-content: space-between;
+    margin-right: 1.5rem;
 }

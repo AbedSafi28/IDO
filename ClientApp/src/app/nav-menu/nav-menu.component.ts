@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {TodoService} from '../providers/todo.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-nav-menu',
@@ -7,9 +8,25 @@ import {TodoService} from '../providers/todo.service';
   styleUrls: ['./nav-menu.component.css']
 })
 export class NavMenuComponent {
-  // TODO make butttons clickable with cursor pointer in this component
 
-  constructor(public todoService: TodoService) {
+  searchBarShown = false;
+  searchTerm = '';
+
+  constructor(private router: Router, public todoService: TodoService) {
+  }
+
+  setSearchValue(value: string): void {
+    this.todoService.searchTerm = value;
+  }
+
+  showSearchBar() {
+    this.searchBarShown = true;
+  }
+
+  hideSearchBar() {
+    if (!this.searchTerm) {
+      this.searchBarShown = false;
+    }
   }
 
   addTask() {
@@ -22,5 +39,10 @@ export class NavMenuComponent {
       estimate: '7 days', // TODO check about this number + text requirement
       importance: ''
     })
+  }
+
+  logout() {
+    localStorage.removeItem('ido-login');
+    this.router.navigate(['/'])
   }
 }

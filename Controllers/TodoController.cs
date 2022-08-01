@@ -85,7 +85,7 @@ public class TodoController : Controller
                         query += "estimate='" + todoInfo.estimate + "', ";
                         query += "importance='" + todoInfo.importance + "', ";
                         query += "userCredential='" + json["userEmail"] + "', ";
-                        query += "status='" + todoInfo.status + "' ";
+                        query += "status='" + todoInfo.status + "' WHERE id='" + todoInfo.id + "' ";
                         query += "End else begin insert INTO dbo.Tasks (id, title, category, dueDate, estimate, importance, userCredential, status) Values(@id, @title, @category, @dueDate, @estimate, @importance, @userCredential, @status)";
                         query += " end";
                         SqlCommand myCommand = new SqlCommand(query, myCon);
