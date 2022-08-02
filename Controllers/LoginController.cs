@@ -25,28 +25,35 @@ public class LoginController : Controller
         if (ModelState.IsValid)
         {
             Boolean ValidEmail = false;
+            Boolean ValidPassword = false;
 
             string sqlDataSource = this._configuration.GetConnectionString("IDOCon");
             using (SqlConnection myCon = new SqlConnection(sqlDataSource))
             {
                 myCon.Open();
-                string query = "SELECT AccountMail from dbo.Account";
+                string query = "SELECT * from dbo.Account";
                 SqlCommand myCommand = new SqlCommand(query, myCon);
                 SqlDataReader myReader = myCommand.ExecuteReader();
                 string Email = "";
+                string Password = "";
                 while (myReader.Read())
                 {
-                    Email = String.Format("{0}", myReader[0]);
+                    Email = String.Format("{0}", myReader[1]);
                     if (String.Equals(accountInfo.email, Email))
                     {
                         ValidEmail = true;
+                    }
+                    Password = String.Format("{0}", myReader[2]);
+                    if (String.Equals(accountInfo.password, Password))
+                    {
+                        ValidPassword = true;
                     }
                 }
                 myReader.Close();
                 myCon.Close();
             }
 
-            if (ValidEmail)
+            if (ValidEmail && ValidPassword)
             {
                 string tokenValue = LoginController.Base64Encode(
                     "{\"userEmail\":\"" + accountInfo.email + "\"}"

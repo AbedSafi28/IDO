@@ -9,7 +9,7 @@
     </div>
     <div class="d-flex tasks-div">
         <div class="d-flex p-2">
-            <div class="p-2">
+            <div class="p-2 custom-scroll">
                 <div class="todo-column-header">
                     <img src="../../assets/images/ToDoIcon.svg"/>
                     <span>To Do</span>
@@ -24,7 +24,7 @@
                 <app-task *ngFor="let td of todoService.todos | searchFilter : todoService.searchTerm" cdkDrag [data]="td"></app-task>
                 </div>
             </div>
-            <div class="p-2">
+            <div class="p-2 custom-scroll">
                 <div class="todo-column-header">
                     <img src="../../assets/images/DoingIcon.svg"/>
                     <span>Doing</span>
@@ -39,7 +39,7 @@
                 <app-task *ngFor="let dg of todoService.doing | searchFilter : todoService.searchTerm" cdkDrag [data]="dg"></app-task>
                 </div>
             </div>
-            <div class="p-2">
+            <div class="p-2 custom-scroll">
                 <div class="todo-column-header">
                     <img src="../../assets/images/DoneIcon.svg"/>
                     <span>Done</span>

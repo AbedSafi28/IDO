@@ -37,7 +37,7 @@ export class NavMenuComponent {
       category: 'Category',
       dueDate: '',
       estimate: '7 days', // TODO check about this number + text requirement
-      importance: ''
+      importance: '1'
     })
   }
 

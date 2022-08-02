@@ -56,3 +56,9 @@ label {
     justify-content: space-between;
     margin-right: 1.5rem;
 }
+
+.custom-scroll {
+    max-height: 80vh;
+    height: auto;
+    overflow: auto;
+}

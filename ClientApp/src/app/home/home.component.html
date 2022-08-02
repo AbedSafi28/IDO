@@ -1,38 +1,35 @@
-<div class="container-fluid h-100">
-  <div class="row vertical-align h-100">
+<div class="container-fluid">
+  <div class="row vertical-align home-main">
     <div class="col-md-6 left-div">
       <div class="row">
-        <img src="../../assets/images/Logo.png" alt="Logo"/>
+        <img src="../../assets/images/Logo.png" class="logo" alt="Logo"/>
       </div>
-      <div class="row vertical-align">
-        <div class="col-md-3">
-          <img src="../../assets/images/Woman.svg" alt="Woman"/>
-        </div>
-        <div class="col-md-3">
-          <img src="../../assets/images/Man.svg" alt="Man"/>
+      <div class="vertical-align">
+        <div class="d-flex home-images">
+          <img class="woman-logo" src="../../assets/images/Woman.svg" alt="Woman"/>
+          <img class="man-logo" src="../../assets/images/Man.svg" alt="Man"/>
         </div>
       </div>
     </div>
     <div class="col-md-6 right-div">
-      <div class="title">
-        <span>Time To Work!</span>
-      </div>
-
-      <form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm.value)">
-        <div>
-          <span>Email</span>
-          <div>
-            <input type="email" name="email" formControlName="email" required>
+      <div class="login-form">
+        <div class="title">
+          <label>Time to Work!</label>
+        </div>
+  
+        <form class="form-group" [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm.value)">
+          <label>Email</label>
+          <div class="div-spacing">
+            <input class="form-control" type="email" name="email" formControlName="email" required>
           </div>
     
-          <span>Password</span>
-          <div>
-            <input type="password" name="password" formControlName="password" required>
+          <label>Password</label>
+          <div class="div-spacing">
+            <input class="form-control" type="password" name="password" formControlName="password" required>
           </div>
-      
-          <button class="button" type="submit">SIGN IN</button>
-        </div>
-      </form>
+          <button class="form-control btn btn-primary" type="submit">SIGN IN</button>
+        </form>
+      </div>
     </div>
   </div>
 </div>

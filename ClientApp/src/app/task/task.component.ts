@@ -54,18 +54,14 @@ export class TaskComponent implements OnInit {
     return classes;
   }
 
-  // TODO maybe make it enum
   getImportanceClass() {
-    if (!this.data.importance || this.data.importance === '0') {
-      return '';
-    }
-    if (this.data.importance === '1') {
-      return 'low-imp';
-    }
     if (this.data.importance === '2') {
       return 'med-imp';
     }
-    return 'high-imp';
+    if (this.data.importance === '3') {
+      return 'high-imp';
+    }
+    return 'low-imp';
   }
 
   checkAndUpdate() {
