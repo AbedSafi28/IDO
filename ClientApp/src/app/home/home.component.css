@@ -103,3 +103,32 @@ button:hover, button:active, button:focus {
         height: 350px;
     }
 }
+
+@media  screen and (max-width: 1366px) {
+    .login-form {
+        margin-top: 10rem;
+        margin-left: 6rem;
+        margin-right: 2rem;
+    }
+
+    .logo {
+        width: 300px;
+        height: 200px;
+        margin-top: 100px;
+    }
+    
+    .woman-logo {
+        width: 300px;
+        height: 250px;
+        margin-top: 20px;
+    }
+
+    .man-logo {
+        height: 270px;
+    }
+    
+    .home-images {
+        justify-content: space-between;
+        /* margin-top: 20px; */
+    }
+}
