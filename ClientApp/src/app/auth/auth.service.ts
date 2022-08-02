@@ -12,11 +12,10 @@ export class AuthService {
         if (decodedLogin) {
             try {
                 const jsonBody = JSON.parse(decodedLogin);
-                if (jsonBody?.userEmail === 'test@gmail.com') {
+                if (jsonBody?.securityCheck === 'exampleOfSecurityCheck') {
                     return true;
                 }
             } catch (error) {
-
             }
         }
         return false;

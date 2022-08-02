@@ -22,7 +22,6 @@ export class TaskComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.setDueDate();
     this.oldData = Object.assign({}, this.data);
   }
 
@@ -76,7 +75,6 @@ export class TaskComponent implements OnInit {
         (response: any) => {
         },
         (error) => {
-          console.log(error);
         }
       );
       this.oldData = Object.assign({}, this.data);

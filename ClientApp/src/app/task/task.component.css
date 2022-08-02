@@ -8,7 +8,12 @@ body {
 span {
     color: #6C757D;
     margin-left: 5px;
+    margin-right: 10px;
     cursor: default;
+}
+
+label {
+    cursor: pointer;
 }
 
 input, select {
@@ -25,6 +30,12 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     outline: none;
     display: none;
     -webkit-appearance: none;
+}
+
+input::placeholder {
+    opacity: .3;
+    font-weight: bold;
+    color: #8556A4;
 }
 
 select {

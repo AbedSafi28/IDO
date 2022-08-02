@@ -35,8 +35,7 @@ export class HomeComponent {
       }),
       password: new FormControl('', {
         validators: [
-          Validators.required,
-          Validators.minLength(6)
+          Validators.required
         ]
       }),
     });

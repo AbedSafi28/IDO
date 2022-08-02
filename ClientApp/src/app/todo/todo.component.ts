@@ -49,7 +49,6 @@ export class TodoComponent implements OnInit {
   onDrop(event: CdkDragDrop<any>) {
     let skipUpdate = false;
     let draggedData: any = '';
-    console.log(event.distance.x);
     const oldContainerData = [...event.previousContainer.data];
     const firstOldElenment = oldContainerData[0];
     const newContainerData = [...event.container.data]

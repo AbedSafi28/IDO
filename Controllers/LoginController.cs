@@ -17,7 +17,6 @@ public class LoginController : Controller
     }
 
     //@TODO respond if user entered valid email, valid password, valid email and password
-    //@TODO remove console.log and console.writeline
     [HttpPost]
     public void login([FromBody] LoginForm accountInfo)
     {
@@ -56,7 +55,7 @@ public class LoginController : Controller
             if (ValidEmail && ValidPassword)
             {
                 string tokenValue = LoginController.Base64Encode(
-                    "{\"userEmail\":\"" + accountInfo.email + "\"}"
+                    "{\"userEmail\":\"" + accountInfo.email + "\", \"securityCheck\":\"exampleOfSecurityCheck\"}"
                 );
                 Response.Cookies.Append("ido-login", tokenValue, new CookieOptions
                 {

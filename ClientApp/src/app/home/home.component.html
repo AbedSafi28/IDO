@@ -17,7 +17,7 @@
           <label>Time to Work!</label>
         </div>
   
-        <form class="form-group" [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm.value)">
+        <form class="form-group" [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm.value)" ngNativeValidate>
           <label>Email</label>
           <div class="div-spacing">
             <input class="form-control" type="email" name="email" formControlName="email" required>

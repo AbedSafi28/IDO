@@ -1,8 +1,8 @@
 <body (mouseleave)="checkAndUpdate()">
-    <input [class]="getTitleClass(data.highlighted)" type="text" [(ngModel)]="data.title"/>
+    <input [class]="getTitleClass(data.highlighted)" type="text" placeholder="Subject" [(ngModel)]="data.title"/>
     <div>
         <span>Category</span>
-        <input type="text" [(ngModel)]="data.category"/>
+        <input type="text" [(ngModel)]="data.category" placeholder="Category"/>
     </div>
     <div>
         <span>Due Date</span>
