@@ -16,7 +16,6 @@ public class LoginController : Controller
         _configuration = configuration;
     }
 
-    //@TODO respond if user entered valid email, valid password, valid email and password
     [HttpPost]
     public void login([FromBody] LoginForm accountInfo)
     {

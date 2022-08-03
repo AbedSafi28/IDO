@@ -5,19 +5,24 @@ body {
     color: #FFFFFF;
 }
 
-span {
-    color: #6C757D;
+label {
+    color: rgb(108, 117, 125, 0.4);
     margin-left: 5px;
-    margin-right: 10px;
     cursor: default;
 }
 
-label {
-    cursor: pointer;
+div > label,
+div > input,
+div > select {
+    margin-top: 15px;
+}
+
+div > label {
+    margin-right: 25px;
 }
 
 input, select {
-    color: #FFFFFF;
+    color: rgba(255, 255, 255, 0.7);
     cursor: pointer;
     background-color: transparent;
     border: 0px;
@@ -39,7 +44,7 @@ input::placeholder {
 }
 
 select {
-    width: 100px;
+    width: 70px;
     text-align: center;
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -51,10 +56,16 @@ select option {
     background-color: #212529;
 }
 
+.date-empty {
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.7);
+}
+
 .task-title {
     color: #FFFFFF;
-    font-weight: bold;
+    font-weight: 600;
     width: 100%;
+    margin-left: 4px; 
 }
 
 .highlighted {
@@ -71,8 +82,4 @@ select option {
 
 .high-imp {
     background-color: #DC3545;
-}
-
-#importanceSpan {
-    cursor: pointer;
 }

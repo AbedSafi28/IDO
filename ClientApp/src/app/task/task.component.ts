@@ -64,8 +64,6 @@ export class TaskComponent implements OnInit {
   }
 
   checkAndUpdate() {
-    // TODO maybe use better library
-    // TODO maybe double check in case of failed response
     const oldData = Object.assign({}, this.oldData);
     const data = Object.assign({}, this.data);
     delete oldData.highlighted;

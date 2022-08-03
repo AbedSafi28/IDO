@@ -4,7 +4,6 @@ import {TodoService} from '../providers/todo.service';
 import {HttpClient} from '@angular/common/http';
 import {SearchFilterPipe} from '../pipes/searchFilter';
 
-// @TODO fix dragging to empty list
 @Component({
   selector: 'app-todo',
   templateUrl: './todo.component.html',

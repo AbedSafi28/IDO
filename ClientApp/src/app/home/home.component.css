@@ -129,6 +129,5 @@ button:hover, button:active, button:focus {
     
     .home-images {
         justify-content: space-between;
-        /* margin-top: 20px; */
     }
 }

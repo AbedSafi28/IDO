@@ -16,7 +16,6 @@ export class TodoService {
 
     constructor() {
         setInterval(() => {
-            // TODO maybe find an alternative way to update data on server
             if (this.lastUpdatedTime && (Date.now() - this.lastUpdatedTime) > 800) {
                 this.lastUpdatedTime = 0;
             }

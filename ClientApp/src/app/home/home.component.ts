@@ -3,13 +3,6 @@ import {FormGroup, FormControl, Validators} from '@angular/forms';
 import {HttpClient} from '@angular/common/http';
 import {Router} from '@angular/router';
 
-// TODO remove comments
-// TODO remove unnecessary files and stuff created by default
-// TODO fix CSS in different components
-// TODO compare final design with pdf
-// TODO test multiple screen sizes
-// TODO add format validation to login form
-// TODO add invalid login
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -42,7 +35,6 @@ export class HomeComponent {
   }
 
   onSubmit(formData: any): void {
-    // TODO handle in case of failed to login
     if (Object.keys(formData) && formData.email && formData.password) {
       this.http.post(this.baseUrl + 'login', formData).subscribe(
         (response: any) => {

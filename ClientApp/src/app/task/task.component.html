@@ -1,30 +1,48 @@
 <body (mouseleave)="checkAndUpdate()">
+<div class="p-2">
     <input [class]="getTitleClass(data.highlighted)" type="text" placeholder="Subject" [(ngModel)]="data.title"/>
-    <div>
-        <span>Category</span>
-        <input type="text" [(ngModel)]="data.category" placeholder="Category"/>
+    <div class="d-flex">
+        <div>
+            <div>
+                <label>Category</label>
+            </div>
+            <div>
+                <label>Due Date</label>
+            </div>
+            <div>
+                <label>Estimate</label>
+            </div>
+            <div>
+                <label>Importance</label>
+            </div>
+        </div>
+        <div>
+            <div>
+                <input type="text" [(ngModel)]="data.category" placeholder="Category"/>
+            </div>
+            <div>
+                <label *ngIf="!data.dueDate" (click)="restoreDueDate()" class="date-empty">None</label>
+            </div>
+            <div>
+                <input 
+                *ngIf="data.dueDate"
+                type="date"
+                min="{{data.dueDate | date:'yyyy-MM-dd'}}"
+                (click)="showDatePicker($event)"
+                [(ngModel)]="data.dueDate"
+            />
+            </div>
+            <div>
+                <input type="text" [(ngModel)]="data.estimate"/>
+            </div>
+            <div>
+                <select [class]="getImportanceClass()" [(ngModel)]="data.importance">
+                    <option value="1">Low</option>
+                    <option value="2">Medium</option>
+                    <option value="3">High</option>
+                </select>
+            </div>
+        </div>
     </div>
-    <div>
-        <span>Due Date</span>
-        <label *ngIf="!data.dueDate" (click)="restoreDueDate()">None</label>
-        <input 
-            *ngIf="data.dueDate"
-            type="date"
-            min="{{data.dueDate | date:'yyyy-MM-dd'}}"
-            (click)="showDatePicker($event)"
-            [(ngModel)]="data.dueDate"
-        />
-    </div>
-    <div>
-        <span>Estimate</span>
-        <input type="text" [(ngModel)]="data.estimate"/>
-    </div>
-    <div>
-        <span id="importanceSpan">Importance</span>
-        <select [class]="getImportanceClass()" [(ngModel)]="data.importance">
-            <option value="1">Low</option>
-            <option value="2">Medium</option>
-            <option value="3">High</option>
-        </select>
-    </div>
+</div>
 </body>

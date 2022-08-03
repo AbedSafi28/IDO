@@ -34,9 +34,9 @@ export class NavMenuComponent {
       id: Math.random().toString(36).substr(2, 16),
       status: 'todo',
       title: 'My Task',
-      category: 'Category',
+      category: '',
       dueDate: '',
-      estimate: '7 days', // TODO check about this number + text requirement
+      estimate: '',
       importance: '1'
     })
   }
